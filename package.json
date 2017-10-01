@@ -1,0 +1,23 @@
+{
+  "name": "latest-node",
+  "version": "0.0.1",
+  "description": "redirects to latest version of NodeJS matching given criteria",
+  "main": "index.js",
+  "scripts": {
+    "test": "set NODE_ENV=test && mocha --uid=tdd test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cepharum/latest-node.git"
+  },
+  "keywords": [
+    "node",
+    "installation"
+  ],
+  "author": "Thomas Urban <thomas.urban@cepharum.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cepharum/latest-node/issues"
+  },
+  "homepage": "https://github.com/cepharum/latest-node#readme"
+}
