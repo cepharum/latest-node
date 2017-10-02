@@ -4,6 +4,7 @@
   "description": "redirects to latest version of NodeJS matching given criteria",
   "main": "index.js",
   "scripts": {
+    "start": "node lib/server.js",
     "test": "set NODE_ENV=test && mocha --uid=tdd test"
   },
   "repository": {
@@ -19,5 +20,14 @@
   "bugs": {
     "url": "https://github.com/cepharum/latest-node/issues"
   },
-  "homepage": "https://github.com/cepharum/latest-node#readme"
+  "homepage": "https://github.com/cepharum/latest-node#readme",
+  "devDependencies": {
+    "eslint": "^4.8.0",
+    "eslint-config-cepharum": "^1.0.2",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
 }
