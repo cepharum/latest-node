@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node lib/server.js",
-    "test": "set NODE_ENV=test && mocha --uid=tdd test"
+    "test": "set NODE_ENV=test && mocha --ui=tdd test",
+    "style": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,8 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.2.0",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^3.5.3",
+    "should": "^13.1.0"
   }
 }
