@@ -44,7 +44,9 @@ const supportedSystems = [
 	"macosx",
 	"darwin",
 	"aix",
+	"sun",
 	"sunos",
+	"solaris",
 ];
 const supportedPlatforms = [
 	"64",
@@ -72,10 +74,6 @@ const supportedMajors = [
 	"10",
 	"11",
 	"20",
-	"100",
-	"200",
-	"1000",
-	"9999",
 ];
 const supportedChannels = [
 	"latest",
