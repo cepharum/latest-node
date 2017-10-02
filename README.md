@@ -101,10 +101,10 @@ Some filter values have defaults:
 * The channel defaults to `lts`.
 * The mode defaults to `fetch` (as this is considered the opposite of `test` shown before).
 
-All other filters are unset and thus 
+All other filters are unset, but may be set up to match some available value in HTTP header field `User-Agent`. So
 
 ```
 http://127.0.0.1:3000/
 ```
 
-would fetch any version of current LTS release.
+would fetch any version of current LTS release for the current client platform in case of it is derivable from user agent information or for any platform otherwise.
