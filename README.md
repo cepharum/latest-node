@@ -20,7 +20,7 @@ Well I might have been using [nvm](https://github.com/creationix/nvm) instead. B
 npm i -D latest-node
 ```
 
-## Running Service
+### Running Service
 
 On Linux invoke with:
 
@@ -35,6 +35,16 @@ set PORT=3000 && npm start
 ```
 
 The whole service makes sense when installed in a persistently available location, only. Thus you might want to expose it on a public server or on a server in your intranet. Instead of using browser use of `curl` may be preferred for automatically downloading installation packages. For the sake of demonstration this documentation expects service to run on local host just like in case of starting it as given before.
+
+## Running Service With Docker
+
+Docker images are built this way:
+
+```bash
+docker build https://github.com/cepharum/latest-node.git
+```
+
+The resulting docker image is exposing HTTP service on its port 3000. 
 
 ## Using Service
 
@@ -52,7 +62,7 @@ Now omit the `/test` part of path and you will be redirected this time for actua
 http://127.0.0.1:3000/stable
 ```
 
-## URL Format
+### URL Format
 
 The service is responding to any incoming URL trying to parse segments of requested path as values used to filter selected NodeJS package. You can filter by 
 
@@ -108,3 +118,26 @@ http://127.0.0.1:3000/
 ```
 
 would fetch any version of current LTS release for the current client platform in case of it is derivable from user agent information or for any platform otherwise.
+
+### Query Parameters
+
+Using path segments for filtering is sufficient in most cases. But for the sake of higher flexibility it is possible to use query parameters for selecting filters, too. Query parameters address filters by name case-insensitively assigning value to be used. Multiple assignments to the same filter won't add up but every assignment replaces the previous one. Parameters are processed from left to right.
+
+Support query parameter names are:
+
+* `os`, `operatingsystem` or `system` select operating system filter
+* `platform`, `cpu` or `processor` select platform
+* `major` or `version` select particular major version to use instead of some channel
+* `channel` selects particular channel to use instead of some particular major version
+* `format` or `archive` select desired format of archive
+* `mode` selects mode of operation (`test` or `fetch`)
+
+The related values are equivalent to those listed before on processing path segments.
+
+Example given before can be rewritten as
+
+```
+http://127.0.0.1:3000?channel=stable&os=win&cpu=32&format=msi
+```
+
+Both ways of providing filter definitions can be mixed with query parameters overriding path-based filters due to order of processing.
